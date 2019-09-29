@@ -179,6 +179,17 @@ public class ClientManager {
         }
     }
 
+    public static void updateClient(Client client){
+        updateName(client);
+        updateAdmin(client);
+        updateBirthdate(client);
+        updateCard(client);
+        updateGender(client);
+        updatePassword(client);
+        updatePhone(client);
+        updateSurname(client);
+    }
+
     public static void deleteClient(Client client){
         try {
             String cardNum = client.getCardNum();
