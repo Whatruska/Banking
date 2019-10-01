@@ -1,7 +1,8 @@
 package main.webapp.Backend.Banking.Transaction;
 
 import main.webapp.Backend.Banking.Card.Card;
-import main.webapp.Backend.Banking.Card.CardManager;
+import main.webapp.Backend.Banking.Managers.CardManager;
+import main.webapp.Backend.Banking.Managers.TransactionManager;
 
 public class Transaction {
     private Card fromCard;

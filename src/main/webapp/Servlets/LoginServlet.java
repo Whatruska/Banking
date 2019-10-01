@@ -1,7 +1,8 @@
 package main.webapp.Servlets;
 
-import main.webapp.Backend.Banking.Client.Client;
-import main.webapp.Backend.Banking.SoftManager;
+import main.webapp.Backend.Banking.Managers.ServletManager;
+import main.webapp.Backend.Banking.Managers.ServletManagerRequest.SMR;
+import main.webapp.Backend.Banking.Managers.ServletManagerRequest.SMRBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,17 +18,12 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String phone = req.getParameter("phone");
-        String password = req.getParameter("password");
-
-        Client client = SoftManager.login(phone, password);
-        if (client != null){
-            //Сделать cookie
-            req.getSession().setAttribute("client", client);
-            resp.sendRedirect(req.getContextPath() + "/main");
-        } else {
-            req.getRequestDispatcher("/Pages/Login.jsp").forward(req, resp);
-            resp.getWriter().write("Invalid");
-        }
+        SMR smr = SMRBuilder
+                .req(req)
+                .resp(resp)
+                .failPath("/Pages/Login.jsp")
+                .successRedir("/main")
+                .build();
+        ServletManager.login(smr);
     }
 }

@@ -1,11 +1,11 @@
-package main.webapp.Backend.Banking;
+package main.webapp.Backend.Banking.Managers;
 
 import main.webapp.Backend.Banking.Client.Client;
-import main.webapp.Backend.Banking.Client.ClientManager;
+import main.webapp.Backend.Banking.CryptWithMD5;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+
 import java.util.Date;
 
 public class SoftManager {

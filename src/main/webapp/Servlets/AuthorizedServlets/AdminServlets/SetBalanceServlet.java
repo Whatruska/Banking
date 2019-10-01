@@ -1,9 +1,8 @@
 package main.webapp.Servlets.AuthorizedServlets.AdminServlets;
 
-import main.webapp.Backend.Banking.Card.Card;
-import main.webapp.Backend.Banking.Card.CardManager;
-import main.webapp.Backend.Banking.Client.Client;
-import main.webapp.Backend.Banking.Client.ClientManager;
+import main.webapp.Backend.Banking.Managers.ServletManager;
+import main.webapp.Backend.Banking.Managers.ServletManagerRequest.SMR;
+import main.webapp.Backend.Banking.Managers.ServletManagerRequest.SMRBuilder;
 import main.webapp.Servlets.AuthorizedServlets.AuthorizedServlet;
 
 import javax.servlet.ServletException;
@@ -21,16 +20,12 @@ public class SetBalanceServlet extends AuthorizedServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String cardNum = req.getParameter("cardNum");
-        Integer value = Integer.parseInt(req.getParameter("value"));
-        if (CardManager.getAllCardNum().contains(cardNum)){
-            Client client = ClientManager.getClientFormDBbyCardNum(cardNum);
-            Card card = client.getCard();
-            card.setValue(value);
-            CardManager.updateCard(card);
-            resp.sendRedirect(req.getContextPath() + "/main");
-        } else {
-            req.getRequestDispatcher("/Pages/AuthPages/AdminPages/SetBalance.jsp").forward(req, resp);
-        }
+        SMR smr = SMRBuilder
+                .req(req)
+                .resp(resp)
+                .failPath("/Pages/AuthPages/AdminPages/SetBalance.jsp")
+                .successRedir("/admin")
+                .build();
+        ServletManager.setBalance(smr);
     }
 }

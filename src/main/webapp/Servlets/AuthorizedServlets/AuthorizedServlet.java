@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public abstract class AuthorizedServlet extends HttpServlet {
-    protected void check(HttpServletRequest req, HttpServletResponse resp, String path){
+    protected void check(HttpServletRequest req, HttpServletResponse resp, String path, String redirectPath){
         Client client = (Client) req.getSession().getAttribute("client");
         if (client == null){
             try {
-                resp.sendRedirect(req.getContextPath() + "/");
+                resp.sendRedirect(req.getContextPath() + redirectPath);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -26,5 +26,9 @@ public abstract class AuthorizedServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+    }
+
+    protected void check(HttpServletRequest req, HttpServletResponse resp, String path){
+        check(req, resp, path, "/");
     }
 }

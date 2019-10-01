@@ -1,7 +1,10 @@
 package main.webapp.Servlets.AuthorizedServlets.AdminServlets;
 
-import main.webapp.Backend.Banking.Client.ClientManager;
+import main.webapp.Backend.Banking.Managers.ClientManager;
 
+import main.webapp.Backend.Banking.Managers.ServletManager;
+import main.webapp.Backend.Banking.Managers.ServletManagerRequest.SMR;
+import main.webapp.Backend.Banking.Managers.ServletManagerRequest.SMRBuilder;
 import main.webapp.Servlets.AuthorizedServlets.AuthorizedServlet;
 
 import javax.servlet.ServletException;
@@ -19,12 +22,12 @@ public class DeleteServlet extends AuthorizedServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String phone = req.getParameter("phone");
-        if (ClientManager.getAllPhones().contains(phone)){
-            ClientManager.deleteClient(ClientManager.getClientFormDBbyPhone(phone));
-            resp.sendRedirect(req.getContextPath() + "/admin");
-        } else {
-            req.getRequestDispatcher("/Pages/AuthPages/AdminPages/DeleteUser.jsp");
-        }
+        SMR smr = SMRBuilder
+                .req(req)
+                .resp(resp)
+                .failPath("/Pages/AuthPages/AdminPages/DeleteUser.jsp")
+                .successRedir("/admin")
+                .build();
+        ServletManager.deleteClient(smr);
     }
 }

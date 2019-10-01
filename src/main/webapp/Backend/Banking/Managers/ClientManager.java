@@ -1,8 +1,9 @@
-package main.webapp.Backend.Banking.Client;
+package main.webapp.Backend.Banking.Managers;
 
-import main.webapp.Backend.Banking.SoftManager;
+import main.webapp.Backend.Banking.Client.Client;
+import main.webapp.Backend.Banking.Client.ClientBuilder;
+import main.webapp.Backend.Banking.Client.ClientWithID;
 import main.webapp.Backend.Executor;
-import main.webapp.Backend.Banking.Card.CardManager;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
