@@ -1,18 +1,37 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+    <%@include file="/Pages/Blocks/Head.jsp" %>
 <body>
     <style>
         <%@ include file="/Pages/Styles/baseStyle.css" %>
         <%@ include file="/Pages/Styles/admin.css" %>
     </style>
     <div class="container">
-        <h1>Admin</h1>
+        <h1>Admin panel</h1>
+
+        <form action="${pageContext.request.contextPath}/delete" method="get">
+            <button type="submit">Delete user</button>
+        </form>
+
+        <form action="${pageContext.request.contextPath}/giveAdmin" method="get">
+            <button type="submit">Give admin access</button>
+        </form>
+
+        <form action="${pageContext.request.contextPath}/setBalance" method="get">
+            <button type="submit">Set Balance</button>
+        </form>
+
+        <form action="${pageContext.request.contextPath}/setCardNum" method="get">
+            <button type="submit">Set Card num</button>
+        </form>
+
+        <form action="${pageContext.request.contextPath}/sql" method="get">
+            <button type="submit">Execute sql</button>
+        </form>
+
+        <form action="${pageContext.request.contextPath}/main" method="get">
+            <button type="submit">To main panel</button>
+        </form>
+
     </div>
 </body>
 </html>

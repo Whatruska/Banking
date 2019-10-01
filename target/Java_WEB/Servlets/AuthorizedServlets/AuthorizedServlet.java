@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-abstract class AuthorizedServlet extends HttpServlet {
+public abstract class AuthorizedServlet extends HttpServlet {
     protected void check(HttpServletRequest req, HttpServletResponse resp, String path){
         Client client = (Client) req.getSession().getAttribute("client");
         if (client == null){
