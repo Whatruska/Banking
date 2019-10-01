@@ -1,8 +1,7 @@
 package main.webapp.Servlets.AuthorizedServlets.AdminServlets;
 
-import main.webapp.Backend.Banking.Client.Client;
-import main.webapp.Backend.Banking.Client.ClientManager;
-import main.webapp.Servlets.AuthorizedServlets.AuthorizedServlet;
+import main.webapp.Backend.Banking.Managers.ServletManager;
+import main.webapp.Backend.Banking.Managers.ServletManagerRequest.SMR;
 
 import javax.servlet.ServletException;
 
@@ -12,22 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/giveAdmin")
-public class GiveAdminServlet extends AuthorizedServlet {
+public class GiveAdminServlet extends AdminServlet {
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        pagePath = "/Pages/AuthPages/AdminPages/GiveAdmin.jsp";
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        check(req, resp, "/Pages/AuthPages/AdminPages/GiveAdmin.jsp");
+        check(req, resp, pagePath);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String phone = req.getParameter("phone");
-        Client client = ClientManager.getClientFormDBbyPhone(phone);
-        if (client != null){
-            client.setAdmin(true);
-            ClientManager.updateAdmin(client);
-            resp.sendRedirect(req.getContextPath() + "/admin");
-        } else {
-            req.getRequestDispatcher("/Pages/AuthPages/AdminPages/GiveAdmin.jsp").forward(req, resp);
-        }
+        SMR smr = makeDefaultSMR(req, resp);
+        ServletManager.giveAdmin(smr);
     }
 }

@@ -1,6 +1,7 @@
 package main.webapp.Backend.Banking.Card;
 
-import main.webapp.Backend.Banking.SoftManager;
+import main.webapp.Backend.Banking.Managers.CardManager;
+
 import java.util.ArrayList;
 
 public class CardNumGen {

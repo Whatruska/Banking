@@ -1,7 +1,5 @@
 package main.webapp.Servlets.AuthorizedServlets;
 
-import main.webapp.Backend.Banking.Client.Client;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 
@@ -12,17 +10,17 @@ import java.io.IOException;
 @WebServlet("/admin")
 public class AdminServlet extends AuthorizedServlet{
     @Override
+    public void init() throws ServletException {
+        pagePath = "/Pages/AuthPages/Admin.jsp";
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         check(req, resp, "/Pages/MainPanel.jsp");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Client client = (Client) req.getSession().getAttribute("client");
-        if (!client.isAdmin() || client == null){
-            resp.sendRedirect(req.getContextPath() + "/main");
-        } else {
-            req.getRequestDispatcher("/Pages/AuthPages/Admin.jsp").forward(req,resp);
-        }
+        check(req, resp, pagePath, redir);
     }
 }

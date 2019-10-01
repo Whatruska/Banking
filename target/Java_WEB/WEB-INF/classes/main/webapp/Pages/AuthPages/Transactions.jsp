@@ -6,7 +6,7 @@
     <%@ include file="/Pages/Styles/baseStyle.css" %>
 </style>
 <div class="container">
-    <h1>Login</h1>
+    <h1>Transaction</h1>
     <form action="${pageContext.request.contextPath}/transactions" method="post">
         <div class="input-field">
             <label for="cardNum">Destination card number :</label>

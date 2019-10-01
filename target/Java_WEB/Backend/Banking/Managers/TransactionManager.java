@@ -1,6 +1,6 @@
-package main.webapp.Backend.Banking.Transaction;
+package main.webapp.Backend.Banking.Managers;
 
-import main.webapp.Backend.Banking.Card.CardManager;
+import main.webapp.Backend.Banking.Transaction.Transaction;
 import main.webapp.Backend.Executor;
 
 import java.sql.ResultSet;

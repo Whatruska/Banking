@@ -2,7 +2,7 @@ package main.webapp.Backend.Banking.Client;
 
 
 import main.webapp.Backend.Banking.Card.Card;
-import main.webapp.Backend.Banking.SoftManager;
+import main.webapp.Backend.Banking.Managers.SoftManager;
 
 import java.util.Calendar;
 import java.util.Date;

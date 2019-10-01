@@ -1,10 +1,7 @@
 package main.webapp.Servlets.AuthorizedServlets.AdminServlets;
 
-import main.webapp.Backend.Banking.Card.Card;
-import main.webapp.Backend.Banking.Card.CardManager;
-import main.webapp.Backend.Banking.Client.Client;
-import main.webapp.Backend.Banking.Client.ClientManager;
-import main.webapp.Servlets.AuthorizedServlets.AuthorizedServlet;
+import main.webapp.Backend.Banking.Managers.ServletManager;
+import main.webapp.Backend.Banking.Managers.ServletManagerRequest.SMR;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,24 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/setBalance")
-public class SetBalanceServlet extends AuthorizedServlet {
+public class SetBalanceServlet extends AdminServlet {
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        pagePath = "/Pages/AuthPages/AdminPages/SetBalance.jsp";
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        check(req, resp, "/Pages/AuthPages/AdminPages/SetBalance.jsp");
+        check(req, resp, pagePath);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String cardNum = req.getParameter("cardNum");
-        Integer value = Integer.parseInt(req.getParameter("value"));
-        if (CardManager.getAllCardNum().contains(cardNum)){
-            Client client = ClientManager.getClientFormDBbyCardNum(cardNum);
-            Card card = client.getCard();
-            card.setValue(value);
-            CardManager.updateCard(card);
-            resp.sendRedirect(req.getContextPath() + "/main");
-        } else {
-            req.getRequestDispatcher("/Pages/AuthPages/AdminPages/SetBalance.jsp").forward(req, resp);
-        }
+        SMR smr = makeDefaultSMR(req, resp);
+        ServletManager.setBalance(smr);
     }
 }

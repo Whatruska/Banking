@@ -2,7 +2,6 @@ package main.webapp.Servlets;
 
 import main.webapp.Backend.Banking.Managers.ServletManager;
 import main.webapp.Backend.Banking.Managers.ServletManagerRequest.SMR;
-import main.webapp.Backend.Banking.Managers.ServletManagerRequest.SMRBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,20 +9,15 @@ import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+public class LoginServlet extends WServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/Pages/Login.jsp").forward(req,resp);
+    public void init() throws ServletException {
+        pagePath = "/Pages/Login.jsp";
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        SMR smr = SMRBuilder
-                .req(req)
-                .resp(resp)
-                .failPath("/Pages/Login.jsp")
-                .successRedir("/main")
-                .build();
+        SMR smr = makeDefaultSMR(req, resp);
         ServletManager.login(smr);
     }
 }
