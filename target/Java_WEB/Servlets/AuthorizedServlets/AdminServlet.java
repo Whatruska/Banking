@@ -13,7 +13,7 @@ import java.io.IOException;
 public class AdminServlet extends AuthorizedServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        check(req, resp, "/Pages/MainPanel.jsp");
     }
 
     @Override

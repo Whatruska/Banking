@@ -32,7 +32,7 @@ public class CardManager {
             while (resultSet.next()){
                 String card_Num = resultSet.getString("CARD_NUM");
                 Integer value = resultSet.getInt("CARD_VALUE");
-                result = new Card(cardNum, value);
+                result = new Card(card_Num, value);
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -18,7 +18,7 @@ public class CardNumGen {
 
     public static String genNum(){
         String result = generateNum();
-        while (!SoftManager.isUnique(result, cardNums)){
+        while (cardNums.contains(result)){
             result = generateNum();
         }
         return result;

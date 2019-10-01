@@ -1,16 +1,28 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: vitalij
-  Date: 2019-09-30
-  Time: 15:06
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Title</title>
-</head>
+<%@include file="/Pages/Blocks/Head.jsp" %>
 <body>
+<style>
+    <%@ include file="/Pages/Styles/baseStyle.css" %>
+    <%@ include file="/Pages/Styles/admin.css" %>
+</style>
+<div class="container">
+    <h1>Give a free money</h1>
 
+    <form action="${pageContext.request.contextPath}/setBalance" method="post">
+        <div class="input-field">
+            <label for="cardNum">Enter card num to set balance</label>
+            <input type="number" name="cardNum" id="cardNum">
+        </div>
+        <div class="input-field">
+            <label for="value">Enter new value :</label>
+            <input type="number" name="value" id="value">
+        </div>
+        <button type="submit">Set new balance to card</button>
+    </form>
+
+    <form action="${pageContext.request.contextPath}/admin" method="get">
+        <button type="submit">To admin panel</button>
+    </form>
+</div>
 </body>
 </html>

@@ -33,7 +33,7 @@ public class RegisterServlet extends HttpServlet {
         String birthdateString = req.getParameter("birthdate");
         Date birthdate = SoftManager.stringToDate(birthdateString);
 
-        if (SoftManager.isUnique(phone, ClientManager.getAllPhones())){
+        if (!ClientManager.getAllPhones().contains(phone)){
             Client client = ClientBuilder
                     .name(name)
                     .surname(surname)

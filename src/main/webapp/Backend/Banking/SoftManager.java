@@ -21,17 +21,6 @@ public class SoftManager {
         return result;
     }
 
-    public static boolean isUnique(String elem, ArrayList<String> elems){
-        Boolean unique = true;
-        for (String eachElem : elems){
-            if (eachElem.equals(elem)){
-                unique = false;
-                break;
-            }
-        }
-        return unique;
-    }
-
     public static String dateToString(Date date){
         return new SimpleDateFormat("yyyy-MM-dd").format(date);
     }
