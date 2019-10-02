@@ -149,6 +149,21 @@ public class ServletManager {
         }
     }
 
+    public static void removeAdmin(SMR smr) throws IOException, ServletException {
+        setSmr(smr);
+        String phone = req.getParameter("phone");
+        Client client = ClientManager.getClientFormDBbyPhone(phone);
+        if (client != null){
+            if (client.isAdmin()){
+                client.setAdmin(false);
+                ClientManager.updateAdmin(client);
+            }
+            resp.sendRedirect(successRedir);
+        } else {
+            req.getRequestDispatcher(failPath).forward(req, resp);
+        }
+    }
+
     public static void setBalance(SMR smr) throws IOException, ServletException {
         setSmr(smr);
         String cardNum = req.getParameter("cardNum");

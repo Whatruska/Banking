@@ -11,7 +11,7 @@
     <form action="${pageContext.request.contextPath}/setBalance" method="post">
         <div class="input-field">
             <label for="cardNum">Enter card num to set balance</label>
-            <input type="number" name="cardNum" id="cardNum">
+            <input type="text" name="cardNum" id="cardNum">
         </div>
         <div class="input-field">
             <label for="value">Enter new value :</label>

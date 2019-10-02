@@ -16,6 +16,10 @@
             <button type="submit">Give admin access</button>
         </form>
 
+        <form action="${pageContext.request.contextPath}/removeAdmin" method="get">
+            <button type="submit">Remove admin</button>
+        </form>
+
         <form action="${pageContext.request.contextPath}/setBalance" method="get">
             <button type="submit">Set Balance</button>
         </form>

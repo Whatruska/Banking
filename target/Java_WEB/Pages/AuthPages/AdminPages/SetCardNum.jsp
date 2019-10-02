@@ -10,11 +10,11 @@
     <form action="${pageContext.request.contextPath}/setCardNum" method="post">
         <div class="input-field">
             <label for="oldCardNum">Enter old card num :</label>
-            <input type="number" name="oldCardNum" id="oldCardNum">
+            <input type="text" name="oldCardNum" id="oldCardNum">
         </div>
         <div class="input-field">
             <label for="newCardNum">Enter new card num :</label>
-            <input type="number" name="newCardNum" id="newCardNum">
+            <input type="text" name="newCardNum" id="newCardNum">
         </div>
         <button type="submit">Set new card number</button>
     </form>
