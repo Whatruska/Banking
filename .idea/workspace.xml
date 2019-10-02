@@ -6,13 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c31ba823-1bb4-4afe-ac24-d3443561460f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Pages/AuthPages/AdminPages/RemoveAdmin.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Servlets/AuthorizedServlets/AdminServlets/RemoveAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Backend/Banking/Managers/ServletManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Backend/Banking/Managers/ServletManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Pages/AuthPages/Admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Pages/AuthPages/Admin.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="c31ba823-1bb4-4afe-ac24-d3443561460f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/Backend/Banking/Managers/ServletManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="146">
-              <caret line="146" column="16" lean-forward="true" selection-start-line="146" selection-start-column="16" selection-end-line="146" selection-end-column="16" />
+              <caret line="146" column="16" selection-start-line="146" selection-start-column="16" selection-end-line="146" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,8 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/Pages/AuthPages/Admin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1">
-              <caret line="15" column="60" lean-forward="true" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+            <state relative-caret-position="389">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
         </entry>
@@ -384,12 +378,12 @@
       <workItem from="1569949315913" duration="285000" />
       <workItem from="1569952324340" duration="11164000" />
       <workItem from="1569991405763" duration="68000" />
-      <workItem from="1569991512228" duration="5617000" />
+      <workItem from="1569991512228" duration="5896000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56210000" />
+    <option name="totallyTimeSpent" value="56489000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="61" y="23" width="1364" height="877" extended-state="0" />
@@ -870,7 +864,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/Backend/Banking/Managers/ServletManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
-          <caret line="146" column="16" lean-forward="true" selection-start-line="146" selection-start-column="16" selection-end-line="146" selection-end-column="16" />
+          <caret line="146" column="16" selection-start-line="146" selection-start-column="16" selection-end-line="146" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -889,8 +883,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/Pages/AuthPages/Admin.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="15" column="60" lean-forward="true" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+        <state relative-caret-position="389">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
