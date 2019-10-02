@@ -11,13 +11,19 @@ import java.io.IOException;
 @WebServlet("/login")
 public class LoginServlet extends WServlet {
     @Override
-    public void init() throws ServletException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         pagePath = "/Pages/Login.jsp";
+        String method = req.getMethod();
+        if (method.equalsIgnoreCase("GET")){
+            doGet(req, resp);
+        } else {
+            doPost(req, resp);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        System.out.println("POST");
         SMR smr = makeDefaultSMR(req, resp);
         ServletManager.login(smr);
     }

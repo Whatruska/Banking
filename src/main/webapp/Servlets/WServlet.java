@@ -23,15 +23,15 @@ abstract public class WServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
-        System.out.println("POST " + pagePath);
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String method = req.getMethod();
+        if (method.equalsIgnoreCase("GET")){
+            doGet(req, resp);
+        }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        init();
         req.getRequestDispatcher(pagePath).forward(req,resp);
-        System.out.println("GET " + pagePath);
     }
 }

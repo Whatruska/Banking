@@ -32,4 +32,9 @@ public abstract class AuthorizedServlet extends WServlet {
     protected void check(HttpServletRequest req, HttpServletResponse resp, String path){
         check(req, resp, path, "/");
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        check(req, resp, pagePath);
+    }
 }

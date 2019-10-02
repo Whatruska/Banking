@@ -13,14 +13,14 @@ import java.io.IOException;
 @WebServlet("/setCardNum")
 public class SetCardNumServlet extends AdminServlet {
     @Override
-    public void init() throws ServletException {
-        super.init();
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         pagePath = "/Pages/AuthPages/AdminPages/SetCardNum.jsp";
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        check(req, resp, pagePath);
+        String method = req.getMethod();
+        if (method.equalsIgnoreCase("GET")){
+            doGet(req, resp);
+        } else {
+            doPost(req, resp);
+        }
     }
 
     @Override

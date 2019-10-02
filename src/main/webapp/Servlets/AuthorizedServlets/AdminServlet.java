@@ -10,8 +10,14 @@ import java.io.IOException;
 @WebServlet("/admin")
 public class AdminServlet extends AuthorizedServlet{
     @Override
-    public void init() throws ServletException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         pagePath = "/Pages/AuthPages/Admin.jsp";
+        String method = req.getMethod();
+        if (method.equalsIgnoreCase("GET")){
+            doGet(req, resp);
+        } else {
+            doPost(req, resp);
+        }
     }
 
     @Override

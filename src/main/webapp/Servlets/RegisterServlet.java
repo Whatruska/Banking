@@ -13,8 +13,14 @@ import java.io.IOException;
 @WebServlet("/register")
 public class RegisterServlet extends WServlet {
     @Override
-    public void init() throws ServletException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         pagePath = "/Pages/Register.jsp";
+        String method = req.getMethod();
+        if (method.equalsIgnoreCase("GET")){
+            doGet(req, resp);
+        } else {
+            doPost(req, resp);
+        }
     }
 
     @Override

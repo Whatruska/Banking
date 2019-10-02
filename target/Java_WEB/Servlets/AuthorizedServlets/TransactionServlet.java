@@ -12,14 +12,15 @@ import java.io.IOException;
 @WebServlet("/transactions")
 public class TransactionServlet extends AuthorizedServlet {
     @Override
-    public void init() throws ServletException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         pagePath = "/Pages/AuthPages/Transactions.jsp";
         redir = "/info";
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        check(req, resp, pagePath);
+        String method = req.getMethod();
+        if (method.equalsIgnoreCase("GET")){
+            doGet(req, resp);
+        } else {
+            doPost(req, resp);
+        }
     }
 
     @Override

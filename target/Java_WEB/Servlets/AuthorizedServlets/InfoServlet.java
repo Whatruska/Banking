@@ -10,17 +10,11 @@ import java.io.IOException;
 @WebServlet("/info")
 public class InfoServlet extends AuthorizedServlet {
     @Override
-    public void init() throws ServletException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         pagePath = "/Pages/AuthPages/Info.jsp";
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        check(req, resp, pagePath);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String method = req.getMethod();
+        if (method.equalsIgnoreCase("GET")){
+            doGet(req, resp);
+        }
     }
 }

@@ -9,12 +9,8 @@ import java.io.IOException;
 @WebServlet("/")
 public class WelcomeServlet extends WServlet {
     @Override
-    public void init() throws ServletException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         pagePath = "/Pages/Welcome page.jsp";
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        super.service(req, resp);
     }
 }

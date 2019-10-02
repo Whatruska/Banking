@@ -139,8 +139,10 @@ public class ServletManager {
         String phone = req.getParameter("phone");
         Client client = ClientManager.getClientFormDBbyPhone(phone);
         if (client != null){
-            client.setAdmin(true);
-            ClientManager.updateAdmin(client);
+            if (!client.isAdmin()){
+                client.setAdmin(true);
+                ClientManager.updateAdmin(client);
+            }
             resp.sendRedirect(successRedir);
         } else {
             req.getRequestDispatcher(failPath).forward(req, resp);
